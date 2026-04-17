@@ -32,9 +32,37 @@ public class Alien {
         this.precioExtremidad = this.tamanio * 0.10;
         this.precioOjo = this.tamanio * 0.05;
         
-       
+        actualizarPrecioTotal();
 	
 	}
+	private void actualizarPrecioTotal() {
+        this.precioTotal = this.precioCuerpo + 
+                          (this.numeroOjos * this.precioOjo) + 
+                          ((this.numeroBrazos + this.numeroPies) * this.precioExtremidad);
+    }
+	public void imprimir() {
+        System.out.println("--- DETALLES DEL ALIEN ---");
+        System.out.println("Tamaño: " + tamanio + " cm");
+        System.out.println("Color: " + color);
+        System.out.println("Brazos: " + numeroBrazos + " | Piernas: " + numeroPies);
+        System.out.println("Ojos: " + numeroOjos);
+        System.out.println("Precio Cuerpo: $" + precioCuerpo);
+        System.out.println("Precio Total: $" + precioTotal);
+    }
+	public void agregarBrazos(int numeroBrazos) {
+	    this.numeroBrazos += numeroBrazos;
+	    actualizarPrecioTotal();
+	}
+	public void agregarOjos(int numeroOjos) {
+        this.numeroOjos += numeroOjos;
+        actualizarPrecioTotal();
+    }
+    
+    public void agregarPies(int numeroPies) {
+        this.numeroPies += numeroPies;
+        actualizarPrecioTotal();
+    }
+	
 
 
 	public int getTamanio() {
