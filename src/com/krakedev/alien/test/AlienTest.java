@@ -18,6 +18,22 @@ public class AlienTest {
         assertEquals(2.0, a1.getPrecioExtremidad(), 0.01); 
         assertEquals(1.0, a1.getPrecioOjo(), 0.01); 
     }
+	@Test
+    public void testRestriccionTamañoMinimo() {
+       
+        Alien a1 = new Alien(3, "Gris");
+        assertEquals(5, a1.getTamanio()); 
+        
+        assertEquals(1.0, a1.getPrecioCuerpo(), 0.01); 
+    }
+	@Test
+    public void testRestriccionTamañoMaximo() {
+        
+        Alien a1 = new Alien(50, "Negro");
+        assertEquals(30, a1.getTamanio()); 
+        
+        assertEquals(6.0, a1.getPrecioCuerpo(), 0.01); 
+    }
 	
 
 }
